@@ -1,40 +1,61 @@
-set nocompatible              " required
-filetype off                  " required
+" Set the line history for VIM
+set history=100
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set a leader for custom key combos
+let mapleader = ","
 
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tmhedberg/SimpylFold'
+" Highlight search results
+set hlsearch
 
+" Show matching brackets when indicator is on them
+set showmatch
 
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Enable syntax highlighting
+syntax enable
 
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Set the colorscheme
+colorscheme desert
+set background=dark
 
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
+" Set utf8 as the standard encoding
+set encoding=utf8
 
-" Enable folding with the spacebar
-nnoremap <space> za
+" Use spaces instead of tabs
+set expandtab
 
-" Set indentation for Python files
-au BufNewFile,BufRead *.py
-\ set tabstop=4 |
-\ set softtabstop=4 |
-\ set shiftwidth=4 |
-\ set textwidth=79 |
-\ set expandtab |
-\ set autoindent |
-\ set fileformat=unix
+" 1 tab is 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" Use h, j, k, and l to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Function to delete trailing white spaces.
+fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfun
+
+" Clean whitespaces for specific files on save.
+if has("autocmd")
+    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+endif"
+
+" Pressing ,ss will enable/disable spell check
+map <leader>ss :setlocal spell!<cr>
