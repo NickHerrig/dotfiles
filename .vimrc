@@ -6,7 +6,6 @@ let mapleader = ","
 
 " Enable filetype plugins
 filetype plugin on
-filetype indent on
 
 " Highlight search results
 set hlsearch
@@ -37,9 +36,6 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 
-" Set text width 
-set textwidth=75
-
 " Use h, j, k, and l to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -57,8 +53,6 @@ endfun
 
 " Clean whitespaces for specific files on save.
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+    autocmd BufWritePre *.yml,*.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif"
 
-" Pressing ,ss will enable/disable spell check
-map <leader>ss :setlocal spell!<cr>
