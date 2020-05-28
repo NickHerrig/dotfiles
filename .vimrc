@@ -19,13 +19,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Enable syntax highlighting
-syntax enable
-
-" Set the colorscheme
-colorscheme desert
-set background=dark
-
 " Set utf8 as the standard encoding
 set encoding=utf8
 
@@ -58,3 +51,8 @@ endif"
 
 " Support iterm2 high color mode
 set t_Co=256
+
+" Trying out the dracular theme
+packadd! dracula
+syntax enable
+colorscheme dracula
