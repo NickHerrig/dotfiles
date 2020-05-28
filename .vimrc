@@ -56,3 +56,5 @@ if has("autocmd")
     autocmd BufWritePre *.yml,*.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif"
 
+" Support iterm2 high color mode
+set t_Co=256
