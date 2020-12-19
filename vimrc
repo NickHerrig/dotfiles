@@ -14,6 +14,7 @@ syntax on                  "syntax highlighting
 set hidden          "switch from unsaved buffer
 set wildmenu        "better command-line completion
 set showcmd         "show partial commands
+set incsearch       "jump to word whilst searching
 set hlsearch        "highlight searches, <C-L> to turn off
 set spell           "enable spell checking!
 set spelllang=en_us "enable spell checking!
@@ -36,6 +37,7 @@ set number 			"show numbers on side
 "Mapping/Keycodes
 "---------------------------------------------------------------------------
 set notimeout ttimeout ttimeoutlen=200 "set key code timeout, not mappings
+nnoremap <CR> :nohlsearch<cr>
 
 "Visuals
 "---------------------------------------------------------------------------
