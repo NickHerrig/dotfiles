@@ -5,10 +5,11 @@ SHELL := /bin/bash
 .PHONY: vim 
 vim: 
 	cp ./vim/.vimrc ~/.vimrc 
-	cp -r vim/templates ~/.vim/
+	cp -r ./vim/templates ~/.vim/
 
 clean:
-	rm -r ~/.vim/templates ~/.vimrc
+	rm -r ~/.vim/templates 
+	rm ~/.vimrc
 
 .PHONY: help
 help:

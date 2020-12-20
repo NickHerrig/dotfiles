@@ -1,12 +1,14 @@
 "Author: Nick Herrig
 "Description: A personal .vimrc for programming
 
+
 "Essentials Starters
 "---------------------------------------------------------------------------
 
 set nocompatible           "sanely reset on source
 filetype indent plugin on  "intelligent auto-indentation
 syntax on                  "syntax highlighting
+
 
 "Advanced Must Haves
 "---------------------------------------------------------------------------
@@ -16,11 +18,10 @@ set wildmenu        "better command-line completion
 set showcmd         "show partial commands
 set incsearch       "jump to word whilst searching
 set hlsearch        "highlight searches, <C-L> to turn off
-set spell           "enable spell checking!
-set spelllang=en_us "enable spell checking!
 
 "Preferences
 "---------------------------------------------------------------------------
+
 set ignorecase                  "Use case insensitive search...
 set smartcase     		"except when using capital letters
 set backspace=indent,eol,start  "allow certain backspacing
@@ -34,22 +35,33 @@ set t_vb=                       "stop visualbell flashing
 set cmdheight=2			"increases command window height
 set number 			"show numbers on side
 
+
 "Mapping/Keycodes
 "---------------------------------------------------------------------------
-set notimeout ttimeout ttimeoutlen=200 "set key code timeout, not mappings
-nnoremap <CR> :nohlsearch<cr>          "stop hilight search with CR
+
+"set key code timeout, not mappings
+set notimeout ttimeout ttimeoutlen=200
+
+"stop highlighting search with CR
+nnoremap <CR> :nohlsearch<cr>
+
 
 "Visuals
 "---------------------------------------------------------------------------
+
 colo elflord                      "set color scheme
+
 
 "AUTO COMMANDS
 "---------------------------------------------------------------------------
+
 "This removes white space for c, python, and yml files
 autocmd FileType c,python,yml autocmd BufWritePre <buffer> %s/\s\+$//e
 
+
 "VIM TEMPLATES
 "---------------------------------------------------------------------------
+
 "Open python template on new .py file
 if has("autocmd")
   augroup templates
@@ -57,15 +69,16 @@ if has("autocmd")
   augroup END
 endif
 
+
 "Shortcut/Usability Notes
 "---------------------------------------------------------------------------
+
 "READLINE NOTES
 " 
 " Previous / Next line    ->  Ctrl-P  ↑↓  Ctrl-N
 " Back / Forward char     ->  Ctrl-B  ←→  Ctrl-F
 " Back / Forward word     ->   Alt-B  ←→  Alt-F
 " Beginning / End of line ->  Ctrl-A  ←→  Ctrl-E
-
 
 "VIM TABS
 "  	open multiple files  -> vim -p file-1 file-2i
@@ -85,3 +98,6 @@ endif
 
 "MACROS
 "	record a macro to register b -> q {register} <key-strokes> q
+
+"REGISTER
+" 	TODO
