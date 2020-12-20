@@ -37,7 +37,7 @@ set number 			"show numbers on side
 "Mapping/Keycodes
 "---------------------------------------------------------------------------
 set notimeout ttimeout ttimeoutlen=200 "set key code timeout, not mappings
-nnoremap <CR> :nohlsearch<cr>
+nnoremap <CR> :nohlsearch<cr>          "stop hilight search with CR
 
 "Visuals
 "---------------------------------------------------------------------------
@@ -48,6 +48,14 @@ colo elflord                      "set color scheme
 "This removes white space for c, python, and yml files
 autocmd FileType c,python,yml autocmd BufWritePre <buffer> %s/\s\+$//e
 
+"VIM TEMPLATES
+"---------------------------------------------------------------------------
+"Open python template on new .py file
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile *.py 0r ~/.vim/templates/python.sh
+  augroup END
+endif
 
 "Shortcut/Usability Notes
 "---------------------------------------------------------------------------
