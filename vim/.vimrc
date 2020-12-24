@@ -40,10 +40,13 @@ set number 			"show numbers on side
 "---------------------------------------------------------------------------
 
 "set key code timeout, not mappings
-set notimeout ttimeout ttimeoutlen=200
+set notimeout ttimeout ttimeoutlen=200 
 
 "stop highlighting search with CR
 nnoremap <CR> :nohlsearch<cr>
+
+"vsplit switch windows
+map <Tab> <C-W>w
 
 
 "Visuals
