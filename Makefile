@@ -2,12 +2,23 @@ SHELL := /bin/bash
 
 .DEFAULT_GOAL := help
 
+.PHONY: ssh-keys 
+ssh-keys: 
+	mkdir ${HOME}/.ssh
+	cd ${HOME}/.ssh
+	ssh-keygen -t rsa
+
+.PHONY: clean-ssh-keys
+clean-ssh-keys:
+	rm -rf ${HOME}/.ssh
+
 .PHONY: vim 
 vim: 
 	cp ./vim/.vimrc ~/.vimrc 
 	cp -r ./vim/templates ~/.vim/
 
-clean:
+.PHONY: clean-vim
+clean-vim:
 	rm -r ~/.vim/templates 
 	rm ~/.vimrc
 
